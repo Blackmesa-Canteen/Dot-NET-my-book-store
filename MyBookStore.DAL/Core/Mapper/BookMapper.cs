@@ -24,25 +24,25 @@ namespace MyBookStore.DAL.Core.Mapper
                 .IsRequired();
 
             builder.Property(book => book.Name)
-                .HasColumnType("VARCHAR")
+                .HasColumnType("VARCHAR(255)")
                 .IsRequired();
 
             builder.Property(book => book.Description)
-                .HasColumnType("VARCHAR");
+                .HasColumnType("VARCHAR(255)");
 
             builder.Property(book => book.CoverImgUrl)
-                .HasColumnType("VARCHAR");
+                .HasColumnType("VARCHAR(255)");
 
             builder.Property(book => book.UserId)
                 .HasColumnType("CHAR(32)");
             
             builder.Property(book => book.CreateDate)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("DATETIME2");
+                .HasColumnType("DATETIME");
             
             builder.Property(book => book.UpdateDate)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasColumnType("DATETIME2");
+                .HasColumnType("DATETIME");
 
             builder.Property(book => book.IsRemoved)
                 .HasDefaultValue(false)

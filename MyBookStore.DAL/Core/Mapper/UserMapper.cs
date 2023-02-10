@@ -24,11 +24,11 @@ namespace MyBookStore.DAL.Core.Mapper
                 .IsRequired();
             
             builder.Property(obj => obj.Name)
-                .HasColumnType("VARCHAR")
+                .HasColumnType("VARCHAR(255)")
                 .IsRequired();
             
             builder.Property(obj => obj.Password)
-                .HasColumnType("VARCHAR")
+                .HasColumnType("VARCHAR(255)")
                 .IsRequired();
             
             builder.Property(obj => obj.Role)
@@ -37,11 +37,11 @@ namespace MyBookStore.DAL.Core.Mapper
             
             builder.Property(obj => obj.CreateDate)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("DATETIME2");
+                .HasColumnType("DATETIME");
             
             builder.Property(obj => obj.UpdateDate)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasColumnType("DATETIME2");
+                .HasColumnType("DATETIME");
 
             builder.Property(obj => obj.IsRemoved)
                 .HasDefaultValue(false)
