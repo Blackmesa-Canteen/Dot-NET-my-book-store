@@ -1,9 +1,10 @@
-namespace MyBookStore.Common
+namespace MyBookStore.Common.constant
 {
     public enum ExceptionEnum
     {
         INVALID_REQUEST_DATA,
         RESOURCE_NOT_EXIST,
+        RESOURCE_DUPLICATED,
         NO_PERMISSION,
         SERVER_INTERNAL_ERROR,
 
@@ -29,6 +30,8 @@ namespace MyBookStore.Common
                     return "Request result not found.";
                 case ExceptionEnum.INVALID_REQUEST_DATA:
                     return "Invalid request data, please check data inputs.";
+                case ExceptionEnum.RESOURCE_DUPLICATED:
+                    return "Duplicated record!";
                 default:
                     return "Unknown exception";
             }
@@ -50,6 +53,8 @@ namespace MyBookStore.Common
                     return Constant.RESOURCE_NOT_FOUND;
                 case ExceptionEnum.INVALID_REQUEST_DATA:
                     return Constant.REQUEST_EXCEPTION;
+                case ExceptionEnum.RESOURCE_DUPLICATED:
+                    return Constant.RESOURCE_DUPLICATED;
                 default:
                     return Constant.UNKNOWN_EXCEPTION_CODE;
             }

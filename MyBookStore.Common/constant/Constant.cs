@@ -1,4 +1,4 @@
-namespace MyBookStore.Common
+namespace MyBookStore.Common.constant
 {
     /**
      * Author: Xiaotian Li
@@ -19,5 +19,6 @@ namespace MyBookStore.Common
         
         public const string UNKNOWN_EXCEPTION_CODE = "1000";
         public const string BOOK_ALREADY_RESERVED_CODE = "1001";
+        public const string RESOURCE_DUPLICATED = "1002";
     }
 }

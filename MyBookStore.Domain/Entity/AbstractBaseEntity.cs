@@ -7,6 +7,8 @@ namespace MyBookStore.Domain
      */
     public class AbstractBaseEntity
     {
+        /* primary key Id should be numeric to guarantee performance */
+        public long Id { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public bool IsRemoved { get; set; }

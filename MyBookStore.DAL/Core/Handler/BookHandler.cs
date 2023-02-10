@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MyBookStore.DAL.Command;
 using MyBookStore.DAL.Command.Impl;
+using MyBookStore.DAL.Core.Entity;
 using MyBookStore.DAL.Entity;
 using MyBookStore.DAL.Repository;
 
@@ -15,7 +16,8 @@ namespace MyBookStore.DAL.Core.Handler
      *
      * CRUD command handler for book records
      */
-    public class BookHandler : IRequestHandler<ReserveBookCommand, TaskResult>
+    public class BookHandler : IRequestHandler<ReserveBookCommand, TaskResult>,
+        IRequestHandler<UpdateBookCommand, TaskResult>
     {
         private readonly IMediator _mediator;
         private readonly IBookRepository _bookRepository;
@@ -41,15 +43,34 @@ namespace MyBookStore.DAL.Core.Handler
             if (request.IsValid())
             {
                 // if the command passed validation
+                var book = await _bookRepository.FindBookByBookId(request.BookId);
+                if (book != null)
+                {
+                    book.UserId = request.UserId;
+                    await _bookRepository.Update(book);
+                }
+                else
+                {
+                    var message = "BookId not found for reserve: " + request.BookId;
+                    // publish error message to logger
+                    await _mediator.Publish(new ErrorMessage(message), cancellationToken);
+                    taskResult.AddErrorInfo(message);
+                }
             }
             else
             {
                 // if the command didn't pass validation,
                 // put error strings into taskResult
+                await _mediator.Publish(new ErrorMessage(request.ValidationResult), cancellationToken);
                 taskResult.AddErrorInfo(GetValidationErrInfoList(request));
             }
 
             return taskResult;
+        }
+
+        public async Task<TaskResult> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
