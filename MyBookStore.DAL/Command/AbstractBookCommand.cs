@@ -18,6 +18,8 @@ namespace MyBookStore.DAL.Command
         public string Description { get; set; }
         public string CoverImgUrl { get; set; }
         
+        public string UserId { get; set; }
+        
         public ValidationResult ValidationResult { get; set; }
 
         public virtual bool IsValid()
