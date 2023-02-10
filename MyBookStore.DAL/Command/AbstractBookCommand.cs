@@ -1,0 +1,35 @@
+using FluentValidation.Results;
+using MediatR;
+using MyBookStore.DAL.Validation;
+using MyBookStore.Domain.Command;
+using MyBookStore.Domain.POJO;
+
+namespace MyBookStore.DAL.Command
+{
+    /**
+     * author: xiaotian li
+     *
+     * CRUD command object
+     */
+    public abstract class AbstractBookCommand : ICommand, IRequest<TaskResult>
+    {
+        public string BookId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string CoverImgUrl { get; set; }
+        
+        public ValidationResult ValidationResult { get; set; }
+
+        public virtual bool IsValid()
+        {
+            BookValidation validation = new BookValidation();
+            validation.ValidateBookId();
+            validation.ValidateName();
+            validation.ValidateDescription();
+            validation.ValidateCoverImgUrl();
+
+            ValidationResult = validation.Validate(this);
+            return ValidationResult.IsValid;
+        }
+    }
+}
