@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-namespace MyBookStore.Domain.POJO
+namespace MyBookStore.DAL.Entity
 {
     /**
      * Author: Xiaotian Li
      *
-     * Task Result object for commands
+     * Task Result object for CRUD commands
      */
     public class TaskResult
     {

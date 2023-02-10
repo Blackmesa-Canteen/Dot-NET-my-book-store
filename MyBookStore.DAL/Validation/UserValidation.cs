@@ -20,7 +20,15 @@ namespace MyBookStore.DAL.Validation
 
         public void ValidatePassword()
         {
-            
+            RuleFor(obj => obj.Password)
+                .NotEmpty().WithMessage("User password should not empty")
+                .MaximumLength(128).WithMessage("User password max length: 128");
+        }
+
+        public void ValidateRole()
+        {
+            RuleFor(obj => obj.Role)
+                .NotNull().WithMessage("Role ID should not null");
         }
     }
 }

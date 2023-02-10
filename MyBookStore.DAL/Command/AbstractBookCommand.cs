@@ -1,8 +1,8 @@
 using FluentValidation.Results;
 using MediatR;
+using MyBookStore.DAL.Entity;
 using MyBookStore.DAL.Validation;
 using MyBookStore.Domain.Command;
-using MyBookStore.Domain.POJO;
 
 namespace MyBookStore.DAL.Command
 {

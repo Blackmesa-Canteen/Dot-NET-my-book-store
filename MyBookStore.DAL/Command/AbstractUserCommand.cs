@@ -1,6 +1,8 @@
+using FluentValidation.Results;
 using MediatR;
+using MyBookStore.DAL.Entity;
+using MyBookStore.DAL.Validation;
 using MyBookStore.Domain.Command;
-using MyBookStore.Domain.POJO;
 
 namespace MyBookStore.DAL.Command
 {
@@ -16,9 +18,19 @@ namespace MyBookStore.DAL.Command
         public string Password { get; set; }
         public int Role { get; set; }
         
+        public ValidationResult ValidationResult { get; set; }
+        
         public bool IsValid()
         {
-            throw new System.NotImplementedException();
+            UserValidation validation = new UserValidation();
+            
+            validation.ValidateUserId();
+            validation.ValidateName();
+            validation.ValidatePassword();
+            validation.ValidateRole();
+
+            ValidationResult = validation.Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }
