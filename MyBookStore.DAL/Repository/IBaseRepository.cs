@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MyBookStore.Domain;
 
 namespace MyBookStore.DAL.Repository
 {
@@ -9,10 +10,14 @@ namespace MyBookStore.DAL.Repository
      *
      * Base repository interface for CRUD
      */
-    public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
+    public interface IBaseRepository<TEntity> : IDisposable where TEntity : AbstractBaseEntity
     {
-        Task Insert(TEntity entiry);
-
+        Task Insert(TEntity entity);
+        
+        /* Not recommend to find entity by auto-increment integer id
+            Use uuid from businessId instead to make system adapt
+            to distributed architecture.
+         */ 
         Task<TEntity> FindById(long? id);
 
         Task<IEnumerable<TEntity>> FindAll();

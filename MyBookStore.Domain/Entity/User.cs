@@ -1,31 +1,24 @@
 using System;
 
-namespace MyBookStore.Domain
+namespace MyBookStore.Domain.Entity
 {
     /**
      * Author: Xiaotian Li
      */
-    public class User
+    public class User : AbstractBaseEntity
     {
 
-        public User()
+        public User() : base()
         {
-            CreateDate = DateTime.Now;
-            UpdateDate = DateTime.Now;
-            IsRemoved = false;
         }
 
-        public User(long id, string userId, string name, string password, int role)
+        public User(long id, string userId, string name, string password, int role) : base()
         {
             Id = id;
             UserId = userId;
             Name = name;
             Password = password;
             Role = role;
-
-            CreateDate = DateTime.Now;
-            UpdateDate = DateTime.Now;
-            IsRemoved = false;
         }
 
         public long Id { get; set; }
@@ -33,10 +26,5 @@ namespace MyBookStore.Domain
         public string Name { get; set; }
         public string Password { get; set; }
         public int Role { get; set; }
-        
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
-        public bool IsRemoved { get; set; }
-        
     }
 }

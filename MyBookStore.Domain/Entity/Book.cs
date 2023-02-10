@@ -1,22 +1,19 @@
 using System;
 
-namespace MyBookStore.Domain
+namespace MyBookStore.Domain.Entity
 {
     /**
      * Author: Xiaotian Li
      */
-    public class Book
+    public class Book : AbstractBaseEntity
     {
 
-        public Book()
+        public Book() : base()
         {
-            CreateDate = DateTime.Now;
-            UpdateDate = DateTime.Now;
-            IsRemoved = false;
         }
 
 
-        public Book(long id, string bookId, string name, string description, string coverImgUrl, string userId)
+        public Book(long id, string bookId, string name, string description, string coverImgUrl, string userId) : base()
         {
             Id = id;
             BookId = bookId;
@@ -24,10 +21,6 @@ namespace MyBookStore.Domain
             Description = description;
             CoverImgUrl = coverImgUrl;
             UserId = userId;
-            
-            CreateDate = DateTime.Now;
-            UpdateDate = DateTime.Now;
-            IsRemoved = false;
         }
 
         public long Id { get; set; }
@@ -39,9 +32,5 @@ namespace MyBookStore.Domain
         
         /* the customer id who booked the book */
         public string UserId { get; set; }
-        
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
-        public bool IsRemoved { get; set; }
     }
 }

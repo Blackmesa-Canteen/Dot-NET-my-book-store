@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using MyBookStore.Domain;
+using MyBookStore.Domain.Entity;
 
 namespace MyBookStore.DAL.Repository.Impl
 {

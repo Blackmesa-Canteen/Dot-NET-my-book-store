@@ -26,13 +26,13 @@ namespace MyBookStore.DAL.Validation
         public void ValidateDescription()
         {
             RuleFor(obj => obj.Description)
-                .MaximumLength(512).WithMessage("Book Name max length: 1024");
+                .MaximumLength(255).WithMessage("Book Name max length: 255");
         }
 
         public void ValidateCoverImgUrl()
         {
             RuleFor(obj => obj.CoverImgUrl)
-                .MaximumLength(1024).WithMessage("Cover image URL max length: 1024");
+                .MaximumLength(255).WithMessage("Cover image URL max length: 255");
         }
     }
 }

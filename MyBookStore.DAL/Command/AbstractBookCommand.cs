@@ -22,6 +22,9 @@ namespace MyBookStore.DAL.Command
         
         public ValidationResult ValidationResult { get; set; }
 
+        /**
+         * data validation for robust system
+         */
         public virtual bool IsValid()
         {
             BookValidation validation = new BookValidation();

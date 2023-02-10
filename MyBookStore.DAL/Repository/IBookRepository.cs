@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MyBookStore.Domain;
+using MyBookStore.Domain.Entity;
 
-namespace MyBookStore.DAL.Repository.Impl
+namespace MyBookStore.DAL.Repository
 {
     /**
      * author: xiaotian li
