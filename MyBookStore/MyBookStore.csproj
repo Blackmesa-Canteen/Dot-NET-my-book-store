@@ -11,4 +11,17 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+      <PackageReference Include="MediatR" Version="11.1.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+      <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MyBookStore.Common\MyBookStore.Common.csproj" />
+      <ProjectReference Include="..\MyBookStore.DAL\MyBookStore.DAL.csproj" />
+    </ItemGroup>
+
 </Project>

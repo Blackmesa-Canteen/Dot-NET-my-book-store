@@ -2,11 +2,15 @@ using Microsoft.Extensions.DependencyInjection;
 using MyBookStore.DAL.Repository;
 using MyBookStore.DAL.Repository.Impl;
 
-namespace MyBookStore.Common.IoC
+namespace MyBookStore.IoC
 {
-    public static class RepositoryInjector
+    /**
+     * author: xiaotian li
+     *
+     * configuration that performs dependency injection
+     */
+    public static class AutoInjector
     {
-        
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IBookRepository, BookRepository>();

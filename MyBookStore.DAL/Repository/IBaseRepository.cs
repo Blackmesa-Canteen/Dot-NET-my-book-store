@@ -14,16 +14,31 @@ namespace MyBookStore.DAL.Repository
     {
         Task Insert(TEntity entity);
         
-        /* Not recommend to find entity by auto-increment integer id
+        /*
+         
+         Find an entity by primary key, NOT business uuid.
+         
+         Note: Not recommend to find entity by auto-increment integer id,
             Use uuid from businessId instead to make system adapt
             to distributed architecture.
          */ 
         Task<TEntity> FindById(long? id);
 
+        /**
+         * return all entities.
+         */
         Task<IEnumerable<TEntity>> FindAll();
 
+        /**
+         * update an entity
+         */
         Task Update(TEntity entity);
 
+        /**
+         * delete an entity.
+         *
+         * Physical delete. Logical delete is not implemented yet.
+         */
         Task Delete(TEntity entity);
     }
 }

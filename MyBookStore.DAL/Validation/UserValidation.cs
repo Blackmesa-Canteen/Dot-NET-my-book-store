@@ -3,6 +3,9 @@ using MyBookStore.DAL.Command;
 
 namespace MyBookStore.DAL.Validation
 {
+    /**
+     * author: xiaotian li
+     */
     public class UserValidation : AbstractValidator<AbstractUserCommand>
     {
         public void ValidateUserId()

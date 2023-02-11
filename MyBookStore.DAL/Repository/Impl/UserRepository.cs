@@ -6,6 +6,9 @@ using MyBookStore.Domain.Entity;
 
 namespace MyBookStore.DAL.Repository.Impl
 {
+    /**
+     * author: xiaotian li
+     */
     public class UserRepository : AbstractBaseRepository<User>, IUserRepository
     {
         public UserRepository(DbContextManager dbContext) : base(dbContext)

@@ -19,7 +19,16 @@ namespace MyBookStore.Domain.Entity
             Password = password;
             Role = role;
         }
-        
+
+        public User(long id, string userId, string name, string password, int role) : base()
+        {
+            Id = id;
+            UserId = userId;
+            Name = name;
+            Password = password;
+            Role = role;
+        }
+
         public string UserId { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
