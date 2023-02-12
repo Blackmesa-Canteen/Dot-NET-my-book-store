@@ -12,18 +12,17 @@ namespace MyBookStore.BLL.Book
         /**
          * Get all book information from db.
          */
-        Task<IEnumerable<BookDTO>> GetAllBooks();
+        Task<R> GetAllBooks();
 
         /**
          * Reserve a book with bookId and userid.
-         * If successful reserved a book, returns true.
+         * If successful reserved a book, returns R with status ok.
          */
-        Task<bool> ReserveBook(string bookId, string userId);
-        
+        Task<R> ReserveBook(string bookId, string userId);
+
         /**
-         * Return a book with bookId and userid.
-         * If successful reserved a book, returns true.
+         * Return a book with bookId and userId
          */
-        Task<bool> ReturnBook(string bookId, string userId);
+        Task<R> ReturnBook(string bookId, string userId);
     }
 }

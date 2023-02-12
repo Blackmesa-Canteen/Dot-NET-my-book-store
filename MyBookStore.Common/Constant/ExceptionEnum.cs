@@ -2,6 +2,8 @@ namespace MyBookStore.Common.constant
 {
     public enum ExceptionEnum
     {
+        OK,
+        
         INVALID_REQUEST_DATA,
         RESOURCE_NOT_EXIST,
         RESOURCE_DUPLICATED,
@@ -18,6 +20,8 @@ namespace MyBookStore.Common.constant
         {
             switch (e)
             {
+                case ExceptionEnum.OK:
+                    return "Ok";
                 case ExceptionEnum.USERNAME_OR_PASSWORD_INCORRECT:
                     return "Login ID or password incorrect!";
                 case ExceptionEnum.BOOK_ALREADY_RESERVED:
@@ -37,26 +41,28 @@ namespace MyBookStore.Common.constant
             }
         }
         
-        public static string GetStatusCode(this ExceptionEnum e)
+        public static int GetStatusCode(this ExceptionEnum e)
         {
             switch (e)
             {
+                case ExceptionEnum.OK:
+                    return MyConstant.OK;
                 case ExceptionEnum.USERNAME_OR_PASSWORD_INCORRECT:
-                    return Constant.PERMISSION_DENIED;
+                    return MyConstant.PERMISSION_DENIED;
                 case ExceptionEnum.BOOK_ALREADY_RESERVED:
-                    return Constant.BOOK_ALREADY_RESERVED_CODE;
+                    return MyConstant.BOOK_ALREADY_RESERVED_CODE;
                 case ExceptionEnum.SERVER_INTERNAL_ERROR:
-                    return Constant.INTERNAL_ERROR;
+                    return MyConstant.INTERNAL_ERROR;
                 case ExceptionEnum.NO_PERMISSION:
-                    return Constant.PERMISSION_DENIED;
+                    return MyConstant.PERMISSION_DENIED;
                 case ExceptionEnum.RESOURCE_NOT_EXIST:
-                    return Constant.RESOURCE_NOT_FOUND;
+                    return MyConstant.RESOURCE_NOT_FOUND;
                 case ExceptionEnum.INVALID_REQUEST_DATA:
-                    return Constant.REQUEST_EXCEPTION;
+                    return MyConstant.REQUEST_EXCEPTION;
                 case ExceptionEnum.RESOURCE_DUPLICATED:
-                    return Constant.RESOURCE_DUPLICATED;
+                    return MyConstant.RESOURCE_DUPLICATED;
                 default:
-                    return Constant.UNKNOWN_EXCEPTION_CODE;
+                    return MyConstant.UNKNOWN_EXCEPTION_CODE;
             }
         }
     }

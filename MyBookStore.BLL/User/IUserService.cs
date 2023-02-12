@@ -8,25 +8,25 @@ namespace MyBookStore.BLL.User
     public interface IUserService
     {
         /**
-         * Register a user. If successful, returns true
+         * Register a user. If successful, returns R with ok status code
          */
-        bool RegisterUser(UserDTO userDto);
+        R RegisterUser(UserDTO userDto);
         
         /**
          * Login a user with credential,
-         * Returns a valid token if successful, otherwise, returns null.
+         * Returns a valid token if successful, otherwise, returns R with err info.
          */
-        string LoginUser(UserDTO userDto);
+        R LoginUser(UserDTO userDto);
         
         /**
-         * logout a user by deprecate token. If successful, returns true.
+         * logout a user by deprecate token. If successful, returns R with ok status code.
          */
-        bool LogoutUser(UserDTO userDto);
+        R LogoutUser(UserDTO userDto);
 
         /**
-         * Get user information based on userId. If successful, returns the UserDTO.
+         * Get user information based on userId. If successful, returns R with UserDTO.
          * otherwise, returns null.
          */
-        UserDTO GetUserInfoWithId(string userId);
+        R GetUserInfoWithId(string userId);
     }
 }

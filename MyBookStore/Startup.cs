@@ -12,8 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using MyBookStore.Configuration;
 using MyBookStore.DAL.DataSource;
-using MyBookStore.IoC;
 
 namespace MyBookStore
 {
@@ -61,14 +61,11 @@ namespace MyBookStore
             });
             
             // register IoC Beans
-            AutoInjector.RegisterServices(services);
-            
-            // add automapper
-            services.AddAutoMapper();
-            
+            RepositoryInjector.RegisterServices(services);
+
             // config mediator for commands
-            services.AddMediaRSetup()
-            
+            services.AddMediaRConfiguration();
+
         }
 
         // Configure the HTTP request pipeline.

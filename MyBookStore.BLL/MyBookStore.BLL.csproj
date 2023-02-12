@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\MyBookStore.Common\MyBookStore.Common.csproj" />
       <ProjectReference Include="..\MyBookStore.DAL\MyBookStore.DAL.csproj" />
       <ProjectReference Include="..\MyBookStore.Domain\MyBookStore.Domain.csproj" />
     </ItemGroup>

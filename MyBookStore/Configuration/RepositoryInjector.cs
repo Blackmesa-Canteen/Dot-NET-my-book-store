@@ -2,14 +2,14 @@ using Microsoft.Extensions.DependencyInjection;
 using MyBookStore.DAL.Repository;
 using MyBookStore.DAL.Repository.Impl;
 
-namespace MyBookStore.IoC
+namespace MyBookStore.Configuration
 {
     /**
      * author: xiaotian li
      *
      * configuration that performs dependency injection
      */
-    public static class AutoInjector
+    public static class RepositoryInjector
     {
         public static void RegisterServices(this IServiceCollection services)
         {
