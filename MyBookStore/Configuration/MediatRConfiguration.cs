@@ -9,6 +9,7 @@ namespace MyBookStore.Configuration
         public static void AddMediaRConfiguration(this IServiceCollection services)
         {
             // inject command handler mediator object from class library
+            services.AddMediatR(typeof(Startup));
             services.AddMediatR(Assembly.Load("MyBookStore.DAL"));
             services.AddMediatR(Assembly.Load("MyBookStore.BLL"));
         }
