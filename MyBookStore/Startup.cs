@@ -62,8 +62,9 @@ namespace MyBookStore
             
             // register IoC Beans
             RepositoryInjector.RegisterServices(services);
+            ServiceInjector.RegisterServices(services);
 
-            // config mediator for commands
+            // config mediator for commands and handlers
             services.AddMediaRConfiguration();
 
         }
