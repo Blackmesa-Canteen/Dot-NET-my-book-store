@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -18,8 +19,17 @@ namespace MyBookStore.BLL.Book.Impl
 
         private readonly IBookRepository _bookRepository;
         private IMediator _mediator;
-        private readonly IMapper _mapper;
-        
+
+        public BookService()
+        {
+        }
+
+        public BookService(IBookRepository bookRepository, IMediator mediator)
+        {
+            _bookRepository = bookRepository;
+            _mediator = mediator;
+        }
+
         public async Task<R> GetAllBooks()
         {
             IEnumerable<Domain.Entity.Book> books = await _bookRepository.FindAll();
@@ -48,6 +58,7 @@ namespace MyBookStore.BLL.Book.Impl
             Domain.Entity.Book book = await _bookRepository.FindBookByBookId(bookId);
             if (book == null)
             {
+                Console.WriteLine("book id {0} not exist! can not reserve", bookId);
                 // book not exist
                 return R.Error(ExceptionEnum.RESOURCE_NOT_EXIST.GetStatusCode(), "Book Not Found!");
             }
@@ -55,6 +66,7 @@ namespace MyBookStore.BLL.Book.Impl
             if (book.UserId != null)
             {
                 // book already reserved
+                Console.WriteLine("book id {0} already exist! can not reserve", bookId);
                 return R.Error(ExceptionEnum.BOOK_ALREADY_RESERVED.GetStatusCode(), ExceptionEnum.BOOK_ALREADY_RESERVED.GetString());
             }
             
@@ -67,6 +79,7 @@ namespace MyBookStore.BLL.Book.Impl
             if (result.HasErrors())
             {
                 // error occured during updating command
+                Console.WriteLine("ReserveBookCommand error in reserve book.");
                 return R.Error().SetData(result.GetErrorList());
             }
             else
@@ -81,18 +94,21 @@ namespace MyBookStore.BLL.Book.Impl
             if (book == null)
             {
                 // book not exist
+                Console.WriteLine("book id {0} not exist! can not return", bookId);
                 return R.Error(ExceptionEnum.RESOURCE_NOT_EXIST.GetStatusCode(), "Book Not Found!");
             }
 
             if (book.UserId == null)
             {
                 // book not reserved at all
+                Console.WriteLine("book id {0} not reserved at all! can not return", bookId);
                 return R.Error(ExceptionEnum.INVALID_REQUEST_DATA.GetStatusCode(), "Book Not Reserved!");
             }
 
             if (book.UserId != userId)
             {
                 // not the book owner, can not return other's book
+                Console.WriteLine("book id {0} not belogs to user id {1}", bookId, userId);
                 return R.Error(ExceptionEnum.NO_PERMISSION.GetStatusCode(), "The book is not yours, can not return.");
             }
 
@@ -104,6 +120,7 @@ namespace MyBookStore.BLL.Book.Impl
             if (result.HasErrors())
             {
                 // error occured during updating command
+                Console.WriteLine("ReserveBookCommand error in return book.");
                 return R.Error().SetData(result.GetErrorList());
             }
             else

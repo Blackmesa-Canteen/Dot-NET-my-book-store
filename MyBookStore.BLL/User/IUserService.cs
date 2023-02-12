@@ -1,4 +1,5 @@
-﻿using MyBookStore.Domain.DTO;
+﻿using System.Threading.Tasks;
+using MyBookStore.Domain.DTO;
 
 namespace MyBookStore.BLL.User
 {
@@ -10,23 +11,23 @@ namespace MyBookStore.BLL.User
         /**
          * Register a user. If successful, returns R with ok status code
          */
-        R RegisterUser(UserDTO userDto);
+        Task<R> RegisterUser(UserDTO userDto);
         
         /**
          * Login a user with credential,
-         * Returns a valid token if successful, otherwise, returns R with err info.
+         * Returns Ok if login success, otherwise, returns R with err info.
          */
-        R LoginUser(UserDTO userDto);
+        Task<R> LoginUser(UserDTO userDto);
         
         /**
          * logout a user by deprecate token. If successful, returns R with ok status code.
          */
-        R LogoutUser(UserDTO userDto);
+        Task<R> LogoutUser(UserDTO userDto);
 
         /**
-         * Get user information based on userId. If successful, returns R with UserDTO.
+         * Get user information based on userId. If successful, returns R with User information.
          * otherwise, returns null.
          */
-        R GetUserInfoWithId(string userId);
+        Task<R> GetUserInfoWithId(string userId);
     }
 }

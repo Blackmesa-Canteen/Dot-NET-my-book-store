@@ -11,7 +11,7 @@ namespace MyBookStore.Common.constant
         SERVER_INTERNAL_ERROR,
 
         BOOK_ALREADY_RESERVED,
-        USERNAME_OR_PASSWORD_INCORRECT,
+        USERNAME_OR_PASSWORD_INCORRECT
     }
 
     public static class ExceptionEnumExtensions

@@ -12,6 +12,7 @@ namespace MyBookStore.Configuration
         {
             // inject command handler mediator object from class library
             services.AddMediatR(Assembly.Load("MyBookStore.DAL"));
+            services.AddMediatR(Assembly.Load("MyBookStore.BLL"));
         }
     }
 }
