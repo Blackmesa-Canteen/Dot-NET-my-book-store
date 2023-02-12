@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using MyBookStore.Common.constant;
+using MyBookStore.Common.Entity;
 using MyBookStore.Common.Util;
 using MyBookStore.DAL.Command.Impl;
 using MyBookStore.DAL.Repository;

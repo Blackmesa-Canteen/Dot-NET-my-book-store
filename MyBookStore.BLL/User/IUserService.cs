@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using MyBookStore.Common.Entity;
 using MyBookStore.Domain.DTO;
 
 namespace MyBookStore.BLL.User

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Net.Sockets;
 using MyBookStore.Common.constant;
 
-namespace MyBookStore.Domain.DTO
+namespace MyBookStore.Common.Entity
 {
     /**
      * author: xiaotian li
@@ -65,7 +64,7 @@ namespace MyBookStore.Domain.DTO
         
         public R Put(string key, object value)
         {
-            base.Add(key,value);
+            base.Add(key, value);
             return this;
         }
     }
