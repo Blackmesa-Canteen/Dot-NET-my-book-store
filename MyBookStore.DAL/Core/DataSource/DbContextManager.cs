@@ -18,7 +18,7 @@ namespace MyBookStore.DAL.DataSource
         public DbSet<Book> BookSet { get; set; }
         public DbSet<User> UserSet { get; set; }
         
-        protected DbContextManager(DbContextOptions options) : base(options)
+        public DbContextManager(DbContextOptions options) : base(options)
         {
         }
 
