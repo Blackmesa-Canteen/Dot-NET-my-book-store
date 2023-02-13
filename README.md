@@ -2,13 +2,18 @@
 An online web application system for a bookstore using ASP.NET MVC (C#). 
 
 # Features
-- The application should list all books in the bookstore.
+- List all books in the bookstore.
 
-- The application should allow customer to search books in the bookstore.
+- Allow customer to search books in the bookstore.
 
-- The application should allow customer to reserve a book in the store. It will generate a booking number once the book reservation has been made.
+- Allow customer to reserve a book in the store. It will generate a booking number once the book reservation has been made.
 
-- The application should not allow to reserve a book that has been reserved by other customer.
+- Allow to reserve a book that has been reserved by other customer.
+
+- CQRS pattern for data access layer.
+
+- JWT authentication.
+
 
 # Requirements
 - .NET 5.0
