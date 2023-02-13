@@ -46,8 +46,7 @@ namespace MyBookStore.DAL.Core.Mapper
             builder.Property(obj => obj.IsRemoved)
                 .HasDefaultValue(false)
                 .HasColumnType("BIT");
-
-            // demo user account
+            
             builder.HasData(
                 new User(1, "demo@996workers.icu", "demo", "jVI1KcvlMzIpFb3uJnT5+w==.5UdMqav4hxxGNpK7y3eT+aY4YoZZkLAMxN6divqZY/Y=", 1)
             );

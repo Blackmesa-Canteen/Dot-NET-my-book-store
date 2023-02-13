@@ -20,7 +20,7 @@ namespace MyBookStore.DAL.Core.Mapper
                 .IsRequired();
 
             builder.Property(book => book.BookId)
-                .HasColumnType("CHAR(32)")
+                .HasColumnType("CHAR(37)")
                 .IsRequired();
 
             builder.Property(book => book.Name)
@@ -48,7 +48,6 @@ namespace MyBookStore.DAL.Core.Mapper
                 .HasDefaultValue(false)
                 .HasColumnType("BIT");
             
-            // data migration
             builder.HasData(
                 new Book(1, "9b0896fa-3880-4c2e-bfd6-925c87f22878", "CQRS for Dummies", "Good book.", "https://www.996workers.icu", null),
                 new Book(2,"0550818d-36ad-4a8d-9c3a-a715bf15de76", "Visual Studio Tips", "Good book 2.", "https://www.996workers.icu", null),
