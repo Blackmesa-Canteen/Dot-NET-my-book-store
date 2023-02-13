@@ -17,7 +17,7 @@ namespace MyBookStore.Common.Util
     {
         private const double EXPIRY_DURATION_MINUTES = 30;
 
-        public static string BuildToken(string key, string issuer, UserDTO user)
+        public static string BuildToken(string key, string issuer, string audience, UserDTO user)
         {
             var claims = new[] {    
                 new Claim(ClaimTypes.NameIdentifier, user.UserId),
@@ -27,7 +27,7 @@ namespace MyBookStore.Common.Util
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));        
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);           
-            var tokenDescriptor = new JwtSecurityToken(issuer, issuer, claims, 
+            var tokenDescriptor = new JwtSecurityToken(issuer, audience, claims, 
                 expires: DateTime.Now.AddMinutes(EXPIRY_DURATION_MINUTES), signingCredentials: credentials);        
             return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);  
         }

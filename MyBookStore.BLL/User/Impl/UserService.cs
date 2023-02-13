@@ -100,7 +100,12 @@ namespace MyBookStore.BLL.User.Impl
                 newUserDto.Name = user.Name;
                 newUserDto.Role = user.Role;
                 // generate token
-                string tokenString = JwtHelper.BuildToken(_configuration["Jwt:Key"], _configuration["Jwt:Issuer"], newUserDto);
+                string tokenString = JwtHelper.BuildToken(
+                    _configuration["Jwt:Key"], 
+                    _configuration["Jwt:Issuer"], 
+                    _configuration["Jwt:Audience"], 
+                    newUserDto
+                    );
                 return R.Ok().SetData(tokenString);
             }
         }

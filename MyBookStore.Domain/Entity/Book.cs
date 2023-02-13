@@ -22,7 +22,7 @@ namespace MyBookStore.Domain.Entity
             UserId = userId;
         }
         
-        public Book(long id, string bookId, string name, string description, string coverImgUrl, string userId)
+        public Book(int id, string bookId, string name, string description, string coverImgUrl, string userId)
         {
             Id = id;
             BookId = bookId;

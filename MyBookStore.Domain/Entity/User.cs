@@ -20,7 +20,7 @@ namespace MyBookStore.Domain.Entity
             Role = role;
         }
 
-        public User(long id, string userId, string name, string password, int role)
+        public User(int id, string userId, string name, string password, int role)
         {
             Id = id;
             UserId = userId;
