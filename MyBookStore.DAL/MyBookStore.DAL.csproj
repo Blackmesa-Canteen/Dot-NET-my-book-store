@@ -15,4 +15,8 @@
       <ProjectReference Include="..\MyBookStore.Domain\MyBookStore.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migration" />
+    </ItemGroup>
+
 </Project>

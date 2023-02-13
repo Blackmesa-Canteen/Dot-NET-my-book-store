@@ -34,7 +34,7 @@ namespace MyBookStore.DAL.Core.Mapper
                 .HasColumnType("VARCHAR(255)");
 
             builder.Property(book => book.UserId)
-                .HasColumnType("CHAR(32)");
+                .HasColumnType("VARCHAR(255)");
             
             builder.Property(book => book.CreateDate)
                 .ValueGeneratedOnAdd()

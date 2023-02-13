@@ -34,7 +34,7 @@ namespace MyBookStore.BLL.Book.Impl
         public async Task<R> GetAllBooks()
         {
             IEnumerable<Domain.Entity.Book> books = await _bookRepository.FindAll();
-            IEnumerable<BookDTO> res = new List<BookDTO>();
+            List<BookDTO> res = new List<BookDTO>();
             
             foreach (Domain.Entity.Book book in books)
             {
@@ -46,7 +46,7 @@ namespace MyBookStore.BLL.Book.Impl
                     book.UserId
                 );
 
-                res.Append(bookDto);
+                res.Add(bookDto);
             }
 
             
@@ -56,7 +56,7 @@ namespace MyBookStore.BLL.Book.Impl
         public async Task<R> SearchBooksByName(string name)
         {
             IEnumerable<Domain.Entity.Book> books = await _bookRepository.SearchBooksByName(name);
-            IEnumerable<BookDTO> res = new List<BookDTO>();
+            List<BookDTO> res = new List<BookDTO>();
             foreach (Domain.Entity.Book book in books)
             {
                 BookDTO bookDto = new BookDTO(
@@ -67,7 +67,7 @@ namespace MyBookStore.BLL.Book.Impl
                     book.UserId
                 );
 
-                res.Append(bookDto);
+                res.Add(bookDto);
             }
 
             

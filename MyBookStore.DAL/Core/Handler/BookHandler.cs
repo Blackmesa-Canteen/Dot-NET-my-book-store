@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -47,6 +48,7 @@ namespace MyBookStore.DAL.Core.Handler
                 if (book != null)
                 {
                     book.UserId = request.UserId;
+                    book.UpdateDate = DateTime.Now;
                     await _bookRepository.Update(book);
                 }
                 else

@@ -20,7 +20,7 @@ namespace MyBookStore.DAL.Core.Mapper
                 .IsRequired();
 
             builder.Property(obj => obj.UserId)
-                .HasColumnType("CHAR(32)")
+                .HasColumnType("VARCHAR(255)")
                 .IsRequired();
 
             builder.Property(obj => obj.Name)

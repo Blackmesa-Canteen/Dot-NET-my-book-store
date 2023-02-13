@@ -35,7 +35,7 @@ namespace MyBookStore.Controllers.Api.V1
 
             if (result.GetCode() == ExceptionEnum.OK.GetStatusCode())
             {
-                IEnumerable<BookDTO> resList = (IEnumerable<BookDTO>)result.GetData();
+                List<BookDTO> resList = (List<BookDTO>)result.GetData();
                 return Ok(
                     new
                     {
@@ -57,7 +57,7 @@ namespace MyBookStore.Controllers.Api.V1
             var result = await _bookService.SearchBooksByName(name);
             if (result.GetCode() == ExceptionEnum.OK.GetStatusCode())
             {
-                IEnumerable<BookDTO> resList = (IEnumerable<BookDTO>)result.GetData();
+                List<BookDTO> resList = (List<BookDTO>)result.GetData();
                 return Ok(
                     new
                 {
