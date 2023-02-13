@@ -23,6 +23,14 @@ An online web application system for a bookstore using ASP.NET MVC (C#).
 - .NET 5.0
 - MySQL 8
 
+# Project structure
+
+- **MyBookStore**: Startup entry point; MVC web application;
+- **MyBookStore/BLL**: Class library, business logic layer;
+- **MyBookStore/DAL**: Class library, data access layer;
+- **MyBookStore/Domain**: Class library, system domain objects;
+- **MyBookStore/Common**: Class library, common dependencies, utilities and so on.
+
 # Database Migration
 1. Install MySQL 8+ on the local machine;
 2. Configure db connection at `MyBookStore/appsettings.json`;
