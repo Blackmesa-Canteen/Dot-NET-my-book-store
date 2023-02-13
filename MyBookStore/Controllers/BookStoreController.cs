@@ -23,22 +23,23 @@ namespace MyBookStore.Controllers
      *
      * main controller
      */
-    public class HomeController : Controller
+    public class BookStoreController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<BookStoreController> _logger;
         private readonly IBookService _bookService;
         private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger, IBookService bookService, IUserService userService)
+        public BookStoreController(ILogger<BookStoreController> logger, IBookService bookService, IUserService userService)
         {
             _logger = logger;
             this._bookService = bookService;
             this._userService = userService;
         }
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var result = await _bookService.GetAllBooks();
+            return View(result.GetData());
         }
 
         // [HttpPost, ActionName("Reserve")]

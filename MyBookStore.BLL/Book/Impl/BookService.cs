@@ -52,7 +52,28 @@ namespace MyBookStore.BLL.Book.Impl
             
             return R.Ok().SetData(res);
         }
-        
+
+        public async Task<R> SearchBooksByName(string name)
+        {
+            IEnumerable<Domain.Entity.Book> books = await _bookRepository.SearchBooksByName(name);
+            IEnumerable<BookDTO> res = new List<BookDTO>();
+            foreach (Domain.Entity.Book book in books)
+            {
+                BookDTO bookDto = new BookDTO(
+                    book.BookId,
+                    book.Name,
+                    book.Description,
+                    book.CoverImgUrl,
+                    book.UserId
+                );
+
+                res.Append(bookDto);
+            }
+
+            
+            return R.Ok().SetData(res);
+        }
+
         public async Task<R> ReserveBook(string bookId, string userId)
         {
             // check reserve info

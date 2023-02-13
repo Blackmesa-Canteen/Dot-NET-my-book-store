@@ -15,6 +15,8 @@ namespace MyBookStore.BLL.Book
          */
         Task<R> GetAllBooks();
 
+        Task<R> SearchBooksByName(string name);
+
         /**
          * Reserve a book with bookId and userid.
          * If successful reserved a book, returns R with status ok.
