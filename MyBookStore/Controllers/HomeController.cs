@@ -41,23 +41,22 @@ namespace MyBookStore.Controllers
             return View();
         }
 
-        // [HttpPost, ActionName("Reserve")]
-        // [Authorize]
-        // public async Task<IActionResult> ReserveBook(BookReserveVo bookReserveVo)
-        // {
-        //     var currentUserInfo = GetCurrentUserInfo();
-        //     R result = await _bookService.ReserveBook(bookReserveVo.BookId, currentUserInfo.UserId);
-        //     if (result.GetCode() == ExceptionEnum.OK.GetStatusCode())
-        //     {
-        //         return RedirectToAction(nameof(System.Index));
-        //     }
-        //     else
-        //     {
-        //         var data = result.GetData();
-        //     }
-        // }
-
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult BookStore()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Register()
         {
             return View();
         }

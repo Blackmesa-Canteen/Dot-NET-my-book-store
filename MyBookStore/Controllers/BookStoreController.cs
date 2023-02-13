@@ -36,11 +36,11 @@ namespace MyBookStore.Controllers
             this._userService = userService;
         }
         
-        public async Task<IActionResult> Index()
-        {
-            var result = await _bookService.GetAllBooks();
-            return View(result.GetData());
-        }
+        // public async Task<IActionResult> Index()
+        // {
+        //     var result = await _bookService.GetAllBooks();
+        //     return View(result.GetData());
+        // }
 
         // [HttpPost, ActionName("Reserve")]
         // [Authorize]
@@ -58,10 +58,10 @@ namespace MyBookStore.Controllers
         //     }
         // }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        // public IActionResult Privacy()
+        // {
+        //     return View();
+        // }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

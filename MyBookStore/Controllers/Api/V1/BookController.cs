@@ -11,6 +11,10 @@ using MyBookStore.Domain.VO;
 
 namespace MyBookStore.Controllers.Api.V1
 {
+    /**
+     * RESTful API
+     * author: xiaotian li
+     */
     [ApiController]
     [Route("api/v1/[controller]")]
     public class BookController : Controller

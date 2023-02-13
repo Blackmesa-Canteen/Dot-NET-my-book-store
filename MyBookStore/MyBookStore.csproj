@@ -26,4 +26,13 @@
       <ProjectReference Include="..\MyBookStore.DAL\MyBookStore.DAL.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Login\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Login\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Register\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Register\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookStore\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookStore\Privacy.cshtml" />
+    </ItemGroup>
+
 </Project>
