@@ -16,7 +16,7 @@ namespace MyBookStore.BLL.User
         
         /**
          * Login a user with credential,
-         * Returns Ok if login success, otherwise, returns R with err info.
+         * Returns Ok with token if login success, otherwise, returns R with err info.
          */
         Task<R> LoginUser(UserDTO userDto);
         

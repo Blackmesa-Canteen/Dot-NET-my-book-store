@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using MyBookStore.Common.constant;
 using MyBookStore.Common.Entity;
 using MyBookStore.Common.Util;
@@ -18,15 +19,17 @@ namespace MyBookStore.BLL.User.Impl
     {
 
         private readonly IUserRepository _userRepository;
+        private readonly IConfiguration _configuration;
         private IMediator _mediator;
 
         public UserService()
         {
         }
 
-        public UserService(IUserRepository userRepository, IMediator mediator)
+        public UserService(IUserRepository userRepository, IConfiguration configuration, IMediator mediator)
         {
             _userRepository = userRepository;
+            _configuration = configuration;
             _mediator = mediator;
         }
 
@@ -92,7 +95,13 @@ namespace MyBookStore.BLL.User.Impl
             }
             else
             {
-                return R.Ok();
+                UserDTO newUserDto = new UserDTO();
+                newUserDto.UserId = user.UserId;
+                newUserDto.Name = user.Name;
+                newUserDto.Role = user.Role;
+                // generate token
+                string tokenString = JwtHelper.BuildToken(_configuration["Jwt:Key"], _configuration["Jwt:Issuer"], newUserDto);
+                return R.Ok().SetData(tokenString);
             }
         }
 

@@ -22,6 +22,7 @@ namespace MyBookStore.Common.Util
             var claims = new[] {    
                 new Claim(ClaimTypes.NameIdentifier, user.UserId),
                 new Claim(ClaimTypes.Role, Convert.ToString(user.Role)),
+                new Claim(ClaimTypes.Name, user.Name)
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));        
@@ -43,7 +44,8 @@ namespace MyBookStore.Common.Util
                     {
                         ValidateIssuerSigningKey = true,
                         ValidateIssuer = true, 
-                        ValidateAudience = true,    
+                        ValidateAudience = true, 
+                        ValidateLifetime = true,
                         ValidIssuer = issuer,
                         ValidAudience = issuer, 
                         IssuerSigningKey = mySecurityKey,

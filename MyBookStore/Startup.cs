@@ -34,7 +34,6 @@ namespace MyBookStore
         // Add services to the IoC container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
             
             // register database connection
             // using MySQL
@@ -42,6 +41,8 @@ namespace MyBookStore
             services.AddDbContext<DbContextManager>(options => {
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             });
+            
+            services.AddControllersWithViews();
             
             // register auth service
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
@@ -83,15 +84,16 @@ namespace MyBookStore
                 app.UseHsts();
             }
             
-            // Auth filter
+            // Auth filter, authentication need to be in the top
             app.UseAuthentication();
+            
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+        
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

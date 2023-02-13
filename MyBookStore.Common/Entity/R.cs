@@ -56,6 +56,16 @@ namespace MyBookStore.Common.Entity
             return (int)this[CODE];
         }
 
+        public object GetData()
+        {
+            return this[DATA];
+        }
+
+        public string GetMessage()
+        {
+            return (string)this[MSG];
+        }
+
         public R SetData(object data)
         {
             Put(DATA, data);
