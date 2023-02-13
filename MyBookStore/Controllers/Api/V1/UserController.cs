@@ -52,10 +52,7 @@ namespace MyBookStore.Controllers.Api.V1
                 else
                 {
                     // if failed
-                    return new ObjectResult(result.GetMessage())
-                    {
-                        StatusCode = result.GetCode()
-                    };
+                    return BadRequest(result.GetMessage());
                 }
                 
             }
@@ -90,7 +87,7 @@ namespace MyBookStore.Controllers.Api.V1
             else
             {
                 // if failed
-                return StatusCode(result.GetCode(), result.GetMessage());
+                return BadRequest(result.GetMessage());
             }
         }
     }

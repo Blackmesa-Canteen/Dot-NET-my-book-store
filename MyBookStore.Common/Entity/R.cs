@@ -74,7 +74,7 @@ namespace MyBookStore.Common.Entity
         
         public R Put(string key, object value)
         {
-            base.Add(key, value);
+            base[key] = value;
             return this;
         }
     }
