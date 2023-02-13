@@ -10,9 +10,13 @@ An online web application system for a bookstore using ASP.NET MVC (C#).
 
 - Allow to reserve a book that has been reserved by other customer.
 
+- MySQL support.
+
 - CQRS pattern for data access layer.
 
 - JWT authentication.
+
+- Server-side password encryption.
 
 
 # Requirements
