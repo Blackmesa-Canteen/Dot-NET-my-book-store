@@ -13,7 +13,7 @@ namespace MyBookStore.Domain.Entity
         }
 
 
-        public Book(string bookId, string name, string description, string coverImgUrl, string userId) : base()
+        public Book(string bookId, string name, string description, string coverImgUrl, string userId)
         {
             BookId = bookId;
             Name = name;
@@ -22,7 +22,7 @@ namespace MyBookStore.Domain.Entity
             UserId = userId;
         }
         
-        public Book(long id, string bookId, string name, string description, string coverImgUrl, string userId) : base()
+        public Book(long id, string bookId, string name, string description, string coverImgUrl, string userId)
         {
             Id = id;
             BookId = bookId;

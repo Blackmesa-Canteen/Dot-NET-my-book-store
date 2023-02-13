@@ -12,7 +12,7 @@ namespace MyBookStore.Domain.Entity
         {
         }
 
-        public User(string userId, string name, string password, int role) : base()
+        public User(string userId, string name, string password, int role)
         {
             UserId = userId;
             Name = name;
@@ -20,7 +20,7 @@ namespace MyBookStore.Domain.Entity
             Role = role;
         }
 
-        public User(long id, string userId, string name, string password, int role) : base()
+        public User(long id, string userId, string name, string password, int role)
         {
             Id = id;
             UserId = userId;

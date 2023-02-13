@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyBookStore.Domain
 {
@@ -8,6 +10,8 @@ namespace MyBookStore.Domain
     public class AbstractBaseEntity
     {
         /* primary key Id should be numeric to guarantee DBMS performance */
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
