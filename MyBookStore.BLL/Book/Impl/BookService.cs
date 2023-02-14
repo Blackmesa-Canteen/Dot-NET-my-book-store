@@ -102,7 +102,7 @@ namespace MyBookStore.BLL.Book.Impl
             {
                 // error occured during updating command
                 Console.WriteLine("ReserveBookCommand error in reserve book.");
-                return R.Error().SetData(result.GetErrorList());
+                return R.Error().SetData(string.Join(",", result.GetErrorList()));
             }
             else
             {
@@ -143,7 +143,7 @@ namespace MyBookStore.BLL.Book.Impl
             {
                 // error occured during updating command
                 Console.WriteLine("ReserveBookCommand error in return book.");
-                return R.Error().SetData(result.GetErrorList());
+                return R.Error().SetData(string.Join(",", result.GetErrorList()));
             }
             else
             {

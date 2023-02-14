@@ -1,8 +1,50 @@
-@model dynamic
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<MyBookStore.Domain.DTO.BookDTO>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Book Store</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Reserver Id
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                <a asp-action="Reserve" asp-route-id="@item.BookId">Reserve</a> |
+                <a asp-action="Return" asp-route-id="@item.BookId">Return</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

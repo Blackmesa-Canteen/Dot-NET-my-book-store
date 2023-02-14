@@ -46,9 +46,11 @@ namespace MyBookStore.Controllers
             return View();
         }
 
-        public IActionResult BookStore()
+        public async Task<IActionResult> BookStore()
         {
-            return View();
+            R result = await _bookService.GetAllBooks();
+            
+            return View(result.GetData());
         }
 
         public IActionResult Login()
@@ -85,5 +87,54 @@ namespace MyBookStore.Controllers
 
             return userDto;
         }
+
+        [Authorize]
+        public async Task<IActionResult> Reserve(string? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            string userId = "abc";
+
+            R result = await _bookService.ReserveBook(id, userId);
+            return handleServiceResultOnBookStore(result);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Return(string? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            
+            string userId = this.User.Claims.First(i =>i.Type == ClaimTypes.NameIdentifier).Value;
+
+            R result = await _bookService.ReturnBook(id, userId);
+            return handleServiceResultOnBookStore(result);
+        }
+
+        // public IActionResult Notice(R serviceResult)
+        // {
+        //     return View(serviceResult);
+        // }
+
+        /**
+         * Handles service results at the bookstore page, then refresh the page
+         */
+        private IActionResult handleServiceResultOnBookStore(R serviceResult)
+        {
+            if (serviceResult.GetCode() != ExceptionEnum.OK.GetStatusCode())
+            {
+                
+                string errorString = $"[{serviceResult.GetMessage()}]: {(string) serviceResult.GetData()}";
+                ModelState.AddModelError(string.Empty, errorString);
+            }
+
+            return RedirectToAction(nameof(BookStore));
+        }
     }
+    
 }

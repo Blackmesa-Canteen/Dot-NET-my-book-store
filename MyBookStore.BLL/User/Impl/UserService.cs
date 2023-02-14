@@ -61,7 +61,7 @@ namespace MyBookStore.BLL.User.Impl
             {
                 Console.WriteLine("user {0} CreateUserCommand error", userDto.UserId);
                 // error occured during updating command
-                return R.Error().SetData(result.GetErrorList());
+                return R.Error().SetData(string.Join(",", result.GetErrorList()));
             }
             else
             {

@@ -1,0 +1,16 @@
+@model MyBookStore.Common.Entity.R
+
+@{
+    ViewData["Title"] = "Notice";
+}
+
+<h2>Operation status</h2>
+
+<div><a asp-action="BookStore">Back to List</a></div>
+
+<h3>@Html.DisplayFor(model => model.GetMessage())</h3>
+<p>Status Code: @Html.DisplayFor(model => model.GetCode())</p>
+
+<div>
+    @Html.DisplayFor(model => model.GetData())
+</div>

@@ -58,7 +58,7 @@ namespace MyBookStore.Common.Entity
 
         public object GetData()
         {
-            return this[DATA];
+            return this.ContainsKey(DATA) ? this[DATA] : "";
         }
 
         public string GetMessage()

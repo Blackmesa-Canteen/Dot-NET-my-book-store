@@ -79,10 +79,12 @@ namespace MyBookStore
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Shared/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
+            app.UseStatusCodePagesWithRedirects("/{0}.html");
             
             // Auth filter, authentication need to be in the top
             app.UseAuthentication();
