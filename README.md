@@ -1,8 +1,5 @@
 # Dot-NET-my-book-store
 An online web application system for a bookstore using ASP.NET MVC (C#). 
-![image](https://user-images.githubusercontent.com/69796042/218667629-c4c9cf80-27a8-4c39-9b78-1b138979ab04.jpeg)
-![image](https://user-images.githubusercontent.com/69796042/218667745-a6876788-2bd6-423d-8a13-f1458763217c.jpeg)
-![image](https://user-images.githubusercontent.com/69796042/218667786-bf192d4a-453f-45e6-93ae-b0c751104811.jpeg)
 
 # Requirements
 - .NET 5.0
@@ -49,6 +46,11 @@ https://localhost:8081/
 The system supports API access. JSON export files of Postman is provided for further development.
 
 See: `doc/MyBookStore.postman_collection.json`.
+
+# Screenshots
+![image](https://user-images.githubusercontent.com/69796042/218667629-c4c9cf80-27a8-4c39-9b78-1b138979ab04.jpeg)
+![image](https://user-images.githubusercontent.com/69796042/218667745-a6876788-2bd6-423d-8a13-f1458763217c.jpeg)
+![image](https://user-images.githubusercontent.com/69796042/218667786-bf192d4a-453f-45e6-93ae-b0c751104811.jpeg)
 
 # License
 ```
