@@ -1,6 +1,12 @@
 # Dot-NET-my-book-store
 An online web application system for a bookstore using ASP.NET MVC (C#). 
 
+# Entrypoint
+https://localhost:8081/
+
+## environment variables
+`ASPNETCORE_URLS=http://localhost:8080;https://localhost:8081 ASPNETCORE_ENVIRONMENT=Development`
+
 # Features
 - List all books in the bookstore.
 

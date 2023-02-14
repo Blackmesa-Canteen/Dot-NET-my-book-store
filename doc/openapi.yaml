@@ -1,0 +1,136 @@
+openapi: "3.0.3"
+info:
+  title: "MyBookStore API"
+  description: "MyBookStore API"
+  version: "1.0.0"
+servers:
+  - url: "https://MyBookStore"
+paths:
+  /Home/BookStore/{id}:
+    post:
+      summary: "POST Home/BookStore/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+    get:
+      summary: "* Home/BookStore/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Error/{id}:
+    get:
+      summary: "* Home/Error/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Index/{id}:
+    get:
+      summary: "* Home/Index/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Login/{id}:
+    get:
+      summary: "* Home/Login/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Privacy/{id}:
+    get:
+      summary: "* Home/Privacy/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Register/{id}:
+    get:
+      summary: "* Home/Register/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Reserve/{id}:
+    get:
+      summary: "* Home/Reserve/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /Home/Return/{id}:
+    get:
+      summary: "* Home/Return/{id}"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/Book/all:
+    get:
+      summary: "GET api/v1/Book/all"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/Book/reservation:
+    put:
+      summary: "PUT api/v1/Book/reservation"
+      responses:
+        "200":
+          description: "OK"
+    delete:
+      summary: "DELETE api/v1/Book/reservation"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/Book/{search}:
+    get:
+      summary: "GET api/v1/Book/{search}"
+      parameters:
+        - name: "search"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/User/login:
+    post:
+      summary: "POST api/v1/User/login"
+      responses:
+        "200":
+          description: "OK"
+  /api/v1/User/register:
+    post:
+      summary: "POST api/v1/User/register"
+      responses:
+        "200":
+          description: "OK"
