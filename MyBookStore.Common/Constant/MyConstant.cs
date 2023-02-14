@@ -10,6 +10,14 @@ namespace MyBookStore.Common.constant
         public const int ADMIN_ROLE = 0;
         public const int CUSTOMER_ROLE = 1;
         
+        // cookie name
+        public const string JWT_COOKIE = "jwt";
+        
+        // config name
+        public const string JWT_KEY_CONFIG = "Jwt:Key";
+        public const string JWT_ISSUER_CONFIG = "Jwt:Issuer";
+        public const string JWT_AUDIENCE_CONFIG = "Jwt:Audience";
+        
         // status codes
         public const int OK = 200;
         public const int REQUEST_EXCEPTION = 400;

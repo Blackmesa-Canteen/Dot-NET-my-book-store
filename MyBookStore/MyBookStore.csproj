@@ -36,4 +36,8 @@
       <_ContentIncludedByDefault Remove="Views\BookStore\Privacy.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Login\index.cshtml" />
+    </ItemGroup>
+
 </Project>

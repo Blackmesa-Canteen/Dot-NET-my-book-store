@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+<span class="text-danger">@TempData["ErrorMes"]</span>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Hello. Click <a asp-area="" asp-controller="Home" asp-action="BookStore">Book</a> to see all books. If you want to reserve a book, need to login first.</p>
