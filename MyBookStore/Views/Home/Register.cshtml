@@ -15,12 +15,12 @@
                 <input type="password" class="form-control" id="password" name="password" />
             </div>
         </div>
-        <div class="form-group row">
-                    <label class="col-sm-1 col-md-1">Name:</label>
-                    <div class="col-sm-5 col-md-5">
-                        <input type="text" class="form-control" id="name" name="name" />
-                    </div>
-                </div>
+        @* <div class="form-group row"> *@
+        @*             <label class="col-sm-1 col-md-1">Name:</label> *@
+        @*             <div class="col-sm-5 col-md-5"> *@
+        @*                 <input type="text" class="form-control" id="name" name="name" /> *@
+        @*             </div> *@
+        @*         </div> *@
         <div class="form-group row">
             <div class="col-sm-1 col-md-1"></div>
             <div class="col-sm-5 col-md-5">
@@ -37,10 +37,11 @@
 
 <script >
 function Register() {
-  let params = {
-      userId: $("#account").val(),
+    let userId = $("#account").val();
+    let params = {
+      userId: userId,
       password: $("#password").val(),
-      name: $("#name").val()
+      name: userId
     };
      
   // store the token into localstorage
