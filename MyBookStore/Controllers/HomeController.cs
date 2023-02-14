@@ -95,13 +95,13 @@ namespace MyBookStore.Controllers
             {
                 return BadRequest();
             }
-
+        
             string userId = "abc";
-
+        
             R result = await _bookService.ReserveBook(id, userId);
             return handleServiceResultOnBookStore(result);
         }
-
+        
         [Authorize]
         public async Task<IActionResult> Return(string? id)
         {
@@ -111,7 +111,7 @@ namespace MyBookStore.Controllers
             }
             
             string userId = this.User.Claims.First(i =>i.Type == ClaimTypes.NameIdentifier).Value;
-
+        
             R result = await _bookService.ReturnBook(id, userId);
             return handleServiceResultOnBookStore(result);
         }
@@ -132,7 +132,7 @@ namespace MyBookStore.Controllers
                 string errorString = $"[{serviceResult.GetMessage()}]: {(string) serviceResult.GetData()}";
                 ModelState.AddModelError(string.Empty, errorString);
             }
-
+        
             return RedirectToAction(nameof(BookStore));
         }
     }
