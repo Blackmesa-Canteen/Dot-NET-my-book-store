@@ -9,6 +9,12 @@
 <h2>Book Store</h2>
 
 <span class="text-danger">@TempData["ErrorMes"]</span>
+<form asp-controller="Home" asp-action="BookStore">
+    <p>
+        Book Name: <input type="text" name="SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>

@@ -57,6 +57,13 @@ namespace MyBookStore.Controllers
 
             return View(result.GetData());
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> BookStore(string searchString)
+        {
+            R result = await _bookService.SearchBooksByName(searchString);
+            return View(result.GetData());
+        }
 
         public IActionResult Login()
         {
