@@ -8,6 +8,8 @@ An online web application system for a bookstore using ASP.NET MVC (C#).
 # Entrypoint
 https://localhost:8081/
 
+**Notice:** Make sure to use ssl url `https://localhost:8081/`, rather than non-ssl `8080` one, because JWT authentication in the system checks audience URL to mitigates forwarding attacks. So the generated token can only be used in `https://localhost:8081/`, but can not replay it to other URLs!
+
 ## environment variables
 `ASPNETCORE_URLS=http://localhost:8080;https://localhost:8081 ASPNETCORE_ENVIRONMENT=Development`
 
