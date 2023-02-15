@@ -24,9 +24,11 @@ https://localhost:8081/
 
 - CQRS pattern for data access layer.
 
-- JWT authentication.
+- JWT authentication, with secure cookie storage.
 
 - Server-side password encryption.
+
+- RESTful backend API support.
 
 # Project structure
 
